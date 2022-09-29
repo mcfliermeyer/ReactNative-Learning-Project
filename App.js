@@ -1,16 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
+import NameField from "./NameField";
 
 export default function App() {
   return (
     <View style={{ backgroundColor: "red", flex: 1 }}>
       <SafeAreaView style={styles.safeContainer}>
         <View style={styles.container}>
-          <View style={styles.nameContainer}>
-            <Text style={styles.nameLabel}>Name</Text>
-            <TextInput style={styles.nameInput} />
-          </View>
-          <Text>making a contact form for practice!</Text>
+          <NameField />
         </View>
       </SafeAreaView>
     </View>
