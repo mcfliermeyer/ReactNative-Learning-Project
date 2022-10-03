@@ -1,14 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
-import NameField from "./NameField";
+import { SafeAreaView, StyleSheet, Text, TextInput, View, Platform } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import FormField from "./FormField";
 
 export default function App() {
   return (
     <View style={{ backgroundColor: "red", flex: 1 }}>
       <SafeAreaView style={styles.safeContainer}>
-        <View style={styles.container}>
-          <NameField />
-        </View>
+        <LinearGradient
+          colors={["#EB6101", "#EB2A01"]}
+          style={styles.backgroundGradient}
+        >
+          <View style={styles.container}>
+            <FormField label="Fart" />
+          </View>
+        </LinearGradient>
       </SafeAreaView>
     </View>
   );
@@ -17,30 +23,13 @@ export default function App() {
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
+    paddingTop: Platform.OS === "android" ? 20 : 0,
   },
   container: {
     flex: 1,
-    backgroundColor: "honeydew",
     alignItems: "center",
   },
-  nameContainer: {
-    margin: 20,
-    backgroundColor: "ghostwhite",
-    width: "80%",
-    height: 60,
-    justifyContent: "center",
-  },
-  nameLabel: {
-    margin: 10,
-    padding: 10,
-    fontSize: 18,
-    backgroundColor: "aqua",
-    justifyContent: "center",
-    textAlign: "center",
-  },
-  nameInput: {
-    minWidth: "80%",
-    height: 60,
-    backgroundColor: "#a1e192",
-  },
+  backgroundGradient: {
+    flex: 1,
+  }
 });
