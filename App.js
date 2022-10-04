@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, TextInput, View, Platform } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Platform,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import FormField from "./FormField";
 
@@ -12,7 +19,12 @@ export default function App() {
           style={styles.backgroundGradient}
         >
           <View style={styles.container}>
-            <FormField label="Fart" />
+            <FormField label="Fart">
+              <TextInput placeholder="Full Name" />
+            </FormField>
+            <FormField label="Message">
+              <TextInput placeholder="Message Me" multiline numberOfLines={4} />
+            </FormField>
           </View>
         </LinearGradient>
       </SafeAreaView>
@@ -31,5 +43,5 @@ const styles = StyleSheet.create({
   },
   backgroundGradient: {
     flex: 1,
-  }
+  },
 });
