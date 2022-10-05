@@ -12,12 +12,6 @@ const FormField = (props) => {
   );
 };
 
-function renderChildren(childComponents) {
-  return childComponents.map((child) => {
-    return React.cloneElement(child, { style: styles.input });
-  });
-}
-
 const styles = StyleSheet.create({
   label: {
     marginTop: 18,

@@ -7,13 +7,23 @@ import {
   TextInput,
   View,
   Platform,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import FormField from "./FormField";
+import { useState } from "react";
 
 export default function App() {
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [messageInput, setMessageInput] = useState("");
+
+  const handleSubmit = () => {
+    console.log(
+      `A message from ${nameInput} from email:${emailInput} that reads "${messageInput}"`
+    );
+  };
+
   return (
     <View style={{ backgroundColor: "red", flex: 1 }}>
       <SafeAreaView style={styles.safeContainer}>
@@ -23,19 +33,29 @@ export default function App() {
         >
           <View style={styles.container}>
             <FormField label="Name">
-              <TextInput placeholder="John Doe" />
+              <TextInput
+                placeholder="John Doe"
+                onChangeText={(newText) => setNameInput(newText)}
+                value={nameInput}
+              />
             </FormField>
             <FormField label="Email">
-              <TextInput placeholder="example@gmail.com" />
+              <TextInput
+                placeholder="example@gmail.com"
+                onChangeText={(newText) => setEmailInput(newText)}
+                value={emailInput}
+              />
             </FormField>
             <FormField label="Message">
               <TextInput
                 placeholder="Message"
                 multiline={true}
                 numberOfLines={4}
+                onChangeText={(newText) => setMessageInput(newText)}
+                value={messageInput}
               />
             </FormField>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
               <Text style={styles.buttonText}>Send Message</Text>
             </TouchableOpacity>
           </View>
