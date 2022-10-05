@@ -21,7 +21,7 @@ function renderChildren(childComponents) {
 const styles = StyleSheet.create({
   label: {
     marginTop: 18,
-    marginBottom: 10,
+    marginBottom: 8,
     fontSize: 18,
     fontFamily: "Roboto",
     fontWeight: "800",
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   },
   input: {
     minWidth: "80%",
-    margin: 10,
     paddingVertical: 10,
     paddingHorizontal: 5,
     backgroundColor: "#ffffff",
@@ -40,6 +39,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Roboto",
     fontWeight: "400",
+    //might just be for android. ios might deafult
+    textAlignVertical: "top", 
   },
 });
 

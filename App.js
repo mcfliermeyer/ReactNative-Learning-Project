@@ -1,4 +1,5 @@
-import { StatusBar } from "expo-status-bar";
+// next thing to do is hook up message button and text components to state. check email is
+// the correct syntax or whatever with regex and then clear the text when message is sent
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,6 +7,8 @@ import {
   TextInput,
   View,
   Platform,
+  Button,
+  TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import FormField from "./FormField";
@@ -19,12 +22,22 @@ export default function App() {
           style={styles.backgroundGradient}
         >
           <View style={styles.container}>
-            <FormField label="Fart">
-              <TextInput placeholder="Full Name" />
+            <FormField label="Name">
+              <TextInput placeholder="John Doe" />
+            </FormField>
+            <FormField label="Email">
+              <TextInput placeholder="example@gmail.com" />
             </FormField>
             <FormField label="Message">
-              <TextInput placeholder="Message Me" multiline numberOfLines={4} />
+              <TextInput
+                placeholder="Message"
+                multiline={true}
+                numberOfLines={4}
+              />
             </FormField>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Send Message</Text>
+            </TouchableOpacity>
           </View>
         </LinearGradient>
       </SafeAreaView>
@@ -43,5 +56,19 @@ const styles = StyleSheet.create({
   },
   backgroundGradient: {
     flex: 1,
+  },
+  button: {
+    minWidth: "50%",
+    padding: 20,
+    marginTop: 18,
+    backgroundColor: "#5357ff",
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Roboto",
+    fontWeight: "800",
+    color: "white",
   },
 });
